@@ -1,6 +1,8 @@
 import java.sql.*;
 import java.util.*;
+import java.util.List;
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 
 public class Main {
     public static void main(String[] args) {
@@ -45,6 +47,10 @@ public class Main {
                     break;
                 case 4:
                     deletarPessoa(scanner, con);
+                    break;
+                case 5:
+                    criarTabela(con);
+                    break;
                 }
               //  con.close();
             }
@@ -147,9 +153,6 @@ public class Main {
                 moradoresArray[8] = "Placa Veiculo: " + retorno.getString(9);
                 moradoresArray[9] = "Conjuge: " + retorno.getString(10);
 
-                JFrame frame = new JFrame("JOptionPane exemplo");
-
-                JOptionPane.showMessageDialog(frame, retorno.getString(2));
 
 //                map.put ("Id" , retorno.getString(1));
 //                map.put ("Nome", retorno.getString(2));
@@ -186,6 +189,37 @@ public class Main {
             System.out.println("Removido.");
 
         }
+
+        public static void criarTabela( Connection con) {
+            try{
+                List retorno = retornarTodos(con);
+
+                String[] nomeColunas = {"Id","Nome", "RG", "AP", "CPF", "Telefone", "Celular", "Veiculo", "Veiculo Placa", "Conjuge"};
+
+                System.out.println("Teste: ");
+                System.out.println(retorno.get(0));
+
+                JFrame frame =  new JFrame();
+                frame.setTitle("Tabela");
+                // Criar a tabela
+                JTable table = new JTable(new DefaultTableModel(nomeColunas, 0));
+                JScrollPane scrollPane = new JScrollPane(table);
+                frame.add(scrollPane);
+                frame.setSize(500, 500);
+                frame.setVisible(true);
+
+                DefaultTableModel model = (DefaultTableModel) table.getModel();
+                model.addRow(new Object[]{"Teste", "teste 2"});
+
+
+            }
+
+            catch(SQLException ex){
+                System.out.printf(ex.getMessage());
+                System.exit(500);
+            };
+            }
+
 
 
 }
