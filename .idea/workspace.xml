@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f773952b-2362-4173-8494-0945f1dbbac0" name="Changes" comment="Tudo ok, testar Java Swang">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Condominio.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DB/CondominioJava.db" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Morador.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Person.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/tests/MainTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="JUnit5 Test Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2JacoNPSZT3AI0tfpKMhg5cGXdc" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;create.test.in.the.same.root&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Julio/Downloads/junit-platform-console-standalone-1.9.1.jar&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Julio\Documents\IntelliJ\Condominio\src" />
+      <recent name="C:\Users\Julio\Documents\IntelliJ\Condominio\DB" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="MainTest.Teste" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Condominio" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests" />
+      <option name="MAIN_CLASS_NAME" value="tests.MainTest" />
+      <option name="METHOD_NAME" value="Teste" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.MainTest.Teste" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f773952b-2362-4173-8494-0945f1dbbac0" name="Changes" comment="" />
+      <created>1672319812931</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1672319812931</updated>
+    </task>
+    <task id="LOCAL-00001" summary="JDBC funcionando">
+      <created>1672325968141</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1672325968141</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Módulo BuscarResultado">
+      <created>1672528919685</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1672528919685</updated>
+    </task>
+    <task id="LOCAL-00003" summary="2 módulos completos">
+      <created>1672529393463</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1672529393463</updated>
+    </task>
+    <task id="LOCAL-00004" summary="módulo RetornarTodos feito, mas será mudado">
+      <created>1672672560533</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1672672560533</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Visualizar todos funcionando corretamente.">
+      <created>1672673786040</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1672673786040</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Tudo ok, testar Java Swang">
+      <created>1672686000901</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1672686000901</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="JDBC funcionando" />
+    <MESSAGE value="Módulo BuscarResultado" />
+    <MESSAGE value="2 módulos completos" />
+    <MESSAGE value="módulo RetornarTodos feito, mas será mudado" />
+    <MESSAGE value="Visualizar todos funcionando corretamente." />
+    <MESSAGE value="Tudo ok, testar Java Swang" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tudo ok, testar Java Swang" />
+  </component>
+  <component name="XDebuggerManager">
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="org.sqlite.jdbc4.JDBC4ResultSet" memberName="lastCol" />
+        <PinnedItemInfo parentTag="org.sqlite.jdbc4.JDBC4ResultSet" memberName="row" />
+      </pinned-members>
+    </pin-to-top-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="((JDBC4PreparedStatement)qry).paramCount" language="JAVA" custom="org.sqlite.jdbc4.JDBC4PreparedStatement" />
+        <watch expression="qry" />
+        <watch expression="qry" />
+        <watch expression="stmt" />
+        <watch expression="((JDBC4ResultSet)moradores.get(0)).cols" custom="org.sqlite.jdbc4.JDBC4ResultSet" />
+        <watch expression="((JDBC4ResultSet)moradores.get(0)).stmt" custom="org.sqlite.jdbc4.JDBC4ResultSet" />
+        <watch expression="((JDBC4ResultSet)moradores.get(0)).cols" custom="org.sqlite.jdbc4.JDBC4ResultSet" />
+        <watch expression="moradoresRetorno.get(1)" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
