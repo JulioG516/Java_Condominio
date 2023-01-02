@@ -16,7 +16,7 @@ public class Main {
         String url = "jdbc:sqlite:C:\\Users\\Julio\\Documents\\IntelliJ\\Condominio\\DB\\CondominioJava.db";
 
         try (Connection con = DriverManager.getConnection(url)){
-            System.out.println("Voce deseja adicionar ou visualizar cadastros ? ");
+            System.out.println("Voce deseja adicionar ou visualizar cadastros ? Digite 1 para adicionar / 2 Para Visualizar Pessoa especifica / 3 Para visualizar todos ");
 
             choice = scanner.nextInt();
             scanner.nextLine();
@@ -29,7 +29,23 @@ public class Main {
                      buscarResultado(scanner, con);
                      break;
                 case 3:
-                    retornarTodos(con);
+                    List retorno = retornarTodos(con);
+                    int tamanho = retorno.size();
+                    for (int i = 0; i < tamanho; i++){
+                        System.out.print("Número " +  (i + 1) + ": ");
+                        System.out.print(retorno.get(i));
+                        System.out.println();
+                    }
+                    System.out.println("Deseja remover alguém ? S/N");
+                    String resposta = scanner.nextLine();
+                    if(resposta.toUpperCase().equals("S")){
+                        System.out.println("Quem voce deseja remover ? digite o ID desejado "); // Tirar um se for tirar do Array ou deixar normal se for do banco de dados
+                        String id = scanner.nextLine();
+                        String query = "DELETE FROM MORADORES WHERE ID = ?";
+                        PreparedStatement ps = con.prepareStatement(query);
+                        ps.setString(1, id);
+                        ps.execute();
+                    }
                     break;
                 }
               //  con.close();
@@ -105,47 +121,33 @@ public class Main {
             }
         }
 
-        public static List retornarTodos(Connection con) {
+        public static List retornarTodos(Connection con) throws  SQLException{
             String query = "SELECT * FROM MORADORES";
 
-            try {
-                PreparedStatement ps = con.prepareStatement(query);
-                ResultSet retorno = ps.executeQuery();
+            PreparedStatement ps = con.prepareStatement(query);
+            ResultSet retorno = ps.executeQuery();
 
-                List moradoresRetorno = new ArrayList<>();
-
-
-                String[] moradoresArray = new String[10];
-
-                while (retorno.next()){
-                    moradoresArray[0] = retorno.getString(1);
-                    moradoresArray[1] = retorno.getString(2);
-                    moradoresArray[2] = retorno.getString(3);
-                    moradoresArray[3] = retorno.getString(4);
-                    moradoresArray[5] = retorno.getString(6);
-                    moradoresArray[6] = retorno.getString(7);
-                    moradoresArray[7] = retorno.getString(8);
-                    moradoresArray[8] = retorno.getString(9);
-                    moradoresArray[9] = retorno.getString(10);
-
-                    moradoresRetorno.add(Arrays.toString(moradoresArray));
+            List moradoresRetorno = new ArrayList<>();
 
 
-                }
+            String[] moradoresArray = new String[10];
 
+            while (retorno.next()){
+                moradoresArray[0] = retorno.getString(1);
+                moradoresArray[1] = retorno.getString(2);
+                moradoresArray[2] = retorno.getString(3);
+                moradoresArray[3] = retorno.getString(4);
+                moradoresArray[4] = retorno.getString(5);
+                moradoresArray[5] = retorno.getString(6);
+                moradoresArray[6] = retorno.getString(7);
+                moradoresArray[7] = retorno.getString(8);
+                moradoresArray[8] = retorno.getString(9);
+                moradoresArray[9] = retorno.getString(10);
 
-                System.out.println("Tamanho: ");
-                System.out.println(moradoresRetorno.size());
+                moradoresRetorno.add(Arrays.toString(moradoresArray));
 
-                System.out.println("Retornar especifico");
-                System.out.println(moradoresRetorno.get(2));
-
-            }
-            catch (SQLException e){
-                System.out.println(e.getMessage());
             }
             return moradoresRetorno;
-
         }
 
 
