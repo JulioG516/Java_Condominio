@@ -1,8 +1,6 @@
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
+import javax.swing.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -16,7 +14,7 @@ public class Main {
         String url = "jdbc:sqlite:C:\\Users\\Julio\\Documents\\IntelliJ\\Condominio\\DB\\CondominioJava.db";
 
         try (Connection con = DriverManager.getConnection(url)){
-            System.out.println("Voce deseja adicionar ou visualizar cadastros ? Digite 1 para adicionar / 2 Para Visualizar Pessoa especifica / 3 Para visualizar todos ");
+            System.out.println("Voce deseja adicionar ou visualizar cadastros ? Digite 1 para adicionar / 2 Para Visualizar Pessoa especifica / 3 Para visualizar todos / ");
 
             choice = scanner.nextInt();
             scanner.nextLine();
@@ -27,6 +25,7 @@ public class Main {
                     break;
                  case 2:
                      buscarResultado(scanner, con);
+
                      break;
                 case 3:
                     List retorno = retornarTodos(con);
@@ -35,18 +34,17 @@ public class Main {
                         System.out.print("Número " +  (i + 1) + ": ");
                         System.out.print(retorno.get(i));
                         System.out.println();
+
                     }
-                    System.out.println("Deseja remover alguém ? S/N");
+                    System.out.println("Deseja deletar algum ? S/N ");
                     String resposta = scanner.nextLine();
-                    if(resposta.toUpperCase().equals("S")){
-                        System.out.println("Quem voce deseja remover ? digite o ID desejado "); // Tirar um se for tirar do Array ou deixar normal se for do banco de dados
-                        String id = scanner.nextLine();
-                        String query = "DELETE FROM MORADORES WHERE ID = ?";
-                        PreparedStatement ps = con.prepareStatement(query);
-                        ps.setString(1, id);
-                        ps.execute();
+                    if (resposta.toUpperCase().equals("S")) {
+                        deletarPessoa(scanner, con);
                     }
+
                     break;
+                case 4:
+                    deletarPessoa(scanner, con);
                 }
               //  con.close();
             }
@@ -68,12 +66,17 @@ public class Main {
            ResultSet retorno =  stmt.executeQuery();
 
            while (retorno.next()) {
-               for (int i = 1; i <= 10; i++){
-                   String x = retorno.getString(i);
-                   System.out.println(x);
+               System.out.println("ID: " + retorno.getString(1));
+               System.out.println("Nome: " + retorno.getString(2));
+               System.out.println("RG: " + retorno.getString(3));
+               System.out.println("AP: " + retorno.getString(4));
+               System.out.println("CPF: " + retorno.getString(5));
+               System.out.println("Telefone: " + retorno.getString(6));
+               System.out.println("Celular: " + retorno.getString(7));
+               System.out.println("Veiculo: " + retorno.getString(8));
+               System.out.println("Placa do Veiculo: " + retorno.getString(9));
+               System.out.println("Conjuge: " + retorno.getString(10));
                }
-           }
-
         }
 
         public static void adicionarPessoa(Scanner scanner, Connection con)  {
@@ -128,26 +131,60 @@ public class Main {
             ResultSet retorno = ps.executeQuery();
 
             List moradoresRetorno = new ArrayList<>();
-
+            HashMap<String, String> map = new HashMap<>();
 
             String[] moradoresArray = new String[10];
 
             while (retorno.next()){
-                moradoresArray[0] = retorno.getString(1);
-                moradoresArray[1] = retorno.getString(2);
-                moradoresArray[2] = retorno.getString(3);
-                moradoresArray[3] = retorno.getString(4);
-                moradoresArray[4] = retorno.getString(5);
-                moradoresArray[5] = retorno.getString(6);
-                moradoresArray[6] = retorno.getString(7);
-                moradoresArray[7] = retorno.getString(8);
-                moradoresArray[8] = retorno.getString(9);
-                moradoresArray[9] = retorno.getString(10);
+                moradoresArray[0] = "Id: " + retorno.getString(1);
+                moradoresArray[1] = "Nome: " + retorno.getString(2);
+                moradoresArray[2] = "RG: " + retorno.getString(3);
+                moradoresArray[3] = "AP: " + retorno.getString(4);
+                moradoresArray[4] = "CPF: " + retorno.getString(5);
+                moradoresArray[5] = "Telefone: " + retorno.getString(6);
+                moradoresArray[6] = "Celular: " + retorno.getString(7);
+                moradoresArray[7] = "Veiculo: " + retorno.getString(8);
+                moradoresArray[8] = "Placa Veiculo: " + retorno.getString(9);
+                moradoresArray[9] = "Conjuge: " + retorno.getString(10);
+
+                JFrame frame = new JFrame("JOptionPane exemplo");
+
+                JOptionPane.showMessageDialog(frame, retorno.getString(2));
+
+//                map.put ("Id" , retorno.getString(1));
+//                map.put ("Nome", retorno.getString(2));
+//                map.put("RG", retorno.getString(3));
+//                map.put("AP", retorno.getString(4));
+//                map.put("CPF", retorno.getString(5));
+//                map.put("Telefone", retorno.getString(6));
+//                map.put("Celular", retorno.getString(7));
+//                map.put("Veiculo", retorno.getString(8));
+//                map.put("PlacaVeiculo", retorno.getString(9));
+//                map.put("Conjuge", retorno.getString(10));
 
                 moradoresRetorno.add(Arrays.toString(moradoresArray));
+                //moradoresRetorno.add(map);
 
             }
             return moradoresRetorno;
+        }
+
+        public static void deletarPessoa(Scanner scanner, Connection con) throws SQLException {
+            System.out.println("Quem voce deseja remover? digite o ID escolhido.");
+
+            while(!scanner.hasNextInt()) {
+                scanner.next();
+                System.out.println("Por favor, Selecione ume ID válido ");
+            }
+            int idEscolhido = scanner.nextInt();
+
+            String query = "DELETE FROM MORADORES WHERE ID = ?";
+
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setInt(1, idEscolhido);
+
+            System.out.println("Removido.");
+
         }
 
 
