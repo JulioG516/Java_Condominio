@@ -1,5 +1,6 @@
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -27,6 +28,9 @@ public class Main {
                  case 2:
                      buscarResultado(scanner, con);
                      break;
+                case 3:
+                    retornarTodos(con);
+                    break;
                 }
               //  con.close();
             }
@@ -56,7 +60,7 @@ public class Main {
 
         }
 
-        public static void adicionarPessoa(Scanner scanner, Connection con)   {
+        public static void adicionarPessoa(Scanner scanner, Connection con)  {
 
             String insert = "INSERT INTO `MORADORES` VALUES(?, ?, ?, ? , ? , ? , ? , ?, ?, ?)";
 
@@ -99,6 +103,49 @@ public class Main {
             catch(SQLException e){
                 System.out.println(e.getMessage());
             }
+        }
+
+        public static List retornarTodos(Connection con) {
+            String query = "SELECT * FROM MORADORES";
+
+            try {
+                PreparedStatement ps = con.prepareStatement(query);
+                ResultSet retorno = ps.executeQuery();
+
+                List moradoresRetorno = new ArrayList<>();
+
+
+                String[] moradoresArray = new String[10];
+
+                while (retorno.next()){
+                    moradoresArray[0] = retorno.getString(1);
+                    moradoresArray[1] = retorno.getString(2);
+                    moradoresArray[2] = retorno.getString(3);
+                    moradoresArray[3] = retorno.getString(4);
+                    moradoresArray[5] = retorno.getString(6);
+                    moradoresArray[6] = retorno.getString(7);
+                    moradoresArray[7] = retorno.getString(8);
+                    moradoresArray[8] = retorno.getString(9);
+                    moradoresArray[9] = retorno.getString(10);
+
+                    moradoresRetorno.add(Arrays.toString(moradoresArray));
+
+
+                }
+
+
+                System.out.println("Tamanho: ");
+                System.out.println(moradoresRetorno.size());
+
+                System.out.println("Retornar especifico");
+                System.out.println(moradoresRetorno.get(2));
+
+            }
+            catch (SQLException e){
+                System.out.println(e.getMessage());
+            }
+            return moradoresRetorno;
+
         }
 
 
